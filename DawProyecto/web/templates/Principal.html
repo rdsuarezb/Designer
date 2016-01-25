@@ -1,0 +1,343 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Desing.er - Inicio </title>
+
+    <!-- Bootstrap Core CSS -->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="{% static "Recursos/css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+
+   <!-- <link href="css/principal_login.css" rel="stylesheet"> -->
+    <link href="{% static "Principal/css/principal_login.css" %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div id="topnav" class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#home" id="brand-nav">Design.er</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right " id="menu" >
+                    <li class="active">
+                        <a href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about">Acerca de</a>
+                    </li>
+                    <li>
+                        <a href="#aboutus">Sobre nosotros</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Header -->
+    <a name="home"></a>
+    <div class="intro-header">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Design.er</h1>
+                        <h2>Crea, guarda y comparte tus diagramas entidad-relacion</h2>
+                        <h3>Con&eacute;ctate para empezar:</h3>
+                        <hr class="intro-divider">
+                        <ul id="socialList" class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#login-modal"><i  class="icon-espol" ></i> <span class="network-name" >espol</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-default btn-lg" data-toggle="modal" ><i class="fa fa-facebook fa-fw"></i> <span class="network-name">facebook</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'social:begin' 'twitter' %}" class="btn btn-default btn-lg" data-toggle="modal" ><i class="fa fa-twitter fa-fw"></i> <span class="network-name">twitter</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'social:begin' 'github' %}" class="btn btn-default btn-lg" data-toggle="modal" ><i class="fa fa-github fa-fw"></i> <span class="network-name">github</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+    
+    
+
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header login_modal_header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="myModalLabel">Iniciar sesi&oacute;n Espol</h3>
+                </div>
+                
+                <div class="modal-body login-modal">
+                    <br/>
+                    <div class="clearfix"></div>
+                    <div id='social-icons-conatainer'>
+                        <form action="/login" method="post">
+                           {% csrf_token %}
+                            <div class='modal-body-left'>
+
+                                <div class="form-group">
+                                    <input name="username" type="text" id="username" placeholder="Correo" value="" class="form-control login-field">
+                                    <i class="fa fa-user login-field-icon"></i>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="password" type="password" id="login-pass" placeholder="contraseña" value="" class="form-control login-field">
+                                    <i class="fa fa-lock login-field-icon"></i>
+                                </div>
+                                <input type="submit" value="login" class="btn btn-success modal-login-btn" />
+                                <a href="/Perfil" id="login-button" class="btn btn-success modal-login-btn">Iniciar</a>
+
+                            </div>
+                        </form>
+
+                        <div class='modal-body-right'>
+                            <div id="socialDiv" class="modal-social-icons">
+                                <a href='{% url 'social:begin' 'facebook' %}' class="btn btn-default facebook"> <i class="fa fa-facebook modal-icons"></i> Iniciar con Facebook </a>
+                                <a href='{% url 'social:begin' 'twitter' %}' class="btn btn-default twitter"> <i class="fa fa-twitter modal-icons"></i> Iniciar con Twitter </a>
+                                <a href='{% url 'social:begin' 'github' %}' class="btn btn-default google"> <i class="fa fa-google-plus modal-icons"></i> Iniciar con Github </a>
+                                
+                            </div> 
+                        </div>	
+                    
+                    </div>																												
+                    <div class="clearfix"></div>
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="modal-footer login_modal_footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+
+	<a  name="about"></a>
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Empieza a crear tus diagramas en linea:</h2>
+                    <p class="lead">Una vez conectado, puedes empezar a crear tus diagramas de entidad-relacion de manera r&aacute;pida y sencilla.</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="/" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+    <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Trabaja sin conexi&oacute;n:</h2>
+                    <p class="lead">Puedes guardar tus diagramas para trabajar luego o seguir editandolos sin conexi&oacute;n.</p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img class="img-responsive" src="/" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-b -->
+
+    <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Comparte tus diagramas:</h2>
+                    <p class="lead">Trabaja y colabora en tiempo real con otros usuarios que comparten tus diagramas.</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="/" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+	<a  name="aboutus"></a>
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline" id="menu-footer">
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#home">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#about">Acerca de</a>
+                        </li>
+                    </ul>
+                    <hr class="intro-divider">
+                    <h4> Sobre nosotros</h4>
+                    <p class="copyright text-muted small">Copyright &copy; 2015. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <!--<script src="js/jquery-2.1.4.min.js"></script> -->
+
+    <!-- Bootstrap Core JavaScript -->
+   <!-- <script src="js/bootstrap.min.js"></script> -->
+    
+    <script src="{% static "Recursos/js/jquery-2.1.4.min.js" %}"></script>
+    <script src="{% static "Recursos/js/bootstrap.min.js" %}"></script>
+    
+    <script>
+        var socialList;
+        function hasClass(a,string){
+            clases = a.classList;
+            for(j=0;j<clases.length;j++){
+                if(clases[j] == string){
+                    return true;
+                }
+            }    
+            return false;
+        }
+        
+        function showButtons(string,buttons){
+            for(i=0;i<buttons.length;i++){
+                if(hasClass(buttons[i],"hide-button") &&
+                   hasClass(buttons[i],string)==false)
+                   buttons[i].classList.remove("hide-button");
+            }
+        }
+                
+        function hideButton(){
+            var i, div, buttons, string;
+            current=this;
+            span = current.getElementsByTagName("span")[0];
+            string = span.innerHTML.toString();
+            div = document.getElementById("socialDiv");
+            buttons = div.getElementsByTagName("a");
+            for(i=0;i<buttons.length;i++){
+                if(hasClass(buttons[i],string))
+                    buttons[i].classList.add("hide-button");
+            }
+            showButtons(string,buttons);
+            document.getElementById("login-button").
+            innerHTML = "Iniciar con "+string;
+        }
+        
+        function cambiarSeleccionado(evt) {
+            li = this;
+            menu = document.getElementById("menu");
+            items = menu.getElementsByTagName("li");
+
+            for(i=0;i<items.length;i++){
+                if(items[i].hasAttribute("class"))
+                    items[i].removeAttribute("class");
+            }
+            
+            if(li.getAttribute("id")!="brand-nav"){
+                li.setAttribute("class", "active");
+            }
+        } 
+
+        function registrarEventos(){
+            
+            var menu, items;
+            slist = document.getElementById("socialList");
+            //itemsb = slist.getElementsByTagName("li");
+            menu = document.getElementById("menu");
+            menuf = document.getElementById("menu-footer");
+            items = menu.getElementsByTagName("li");
+            itemsf = menuf.getElementsByTagName("li");
+            brand = document.getElementById("brand-nav");
+            brand.addEventListener("click", cambiarSeleccionado, false);
+            
+            for(i=0;i<items.length;i++){
+                items[i].addEventListener("click", cambiarSeleccionado, false);
+            }
+            
+            for(i=0;i<itemsf.length;i++){
+                itemsf[i].addEventListener("click", cambiarSeleccionado, false);
+            }
+            
+            for(i=0;i<itemsb.length;i++){
+                itemsb[i].addEventListener("click", hideButton, false);
+            }
+              
+        }
+
+        window.addEventListener("load", registrarEventos, false);
+    </script>
+    
+</body>
+
+</html>

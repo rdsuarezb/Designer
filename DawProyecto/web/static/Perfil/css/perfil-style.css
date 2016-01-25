@@ -1,0 +1,75 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    background: url("../../Recursos/img/intro-bck2.jpg");
+}
+
+#example {
+    padding-top: 1em;
+}
+nav a{
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+#profile {
+    position: relative;
+}
+
+.ra-well-title {
+    font-size: 1.2857em;
+    line-height: 1.2857em;
+    border-bottom: 1px solid #e7e7e7;
+    margin: -5px -19px 0.8333em;
+    padding: 0 19px 0.7222em;
+    background-color:  #E6EEF1;
+}
+
+.ra-avatar {
+    border: 1px solid #e7e7e7;
+    border-radius: 2px;
+    margin-left: 1em;
+    display: inline;
+}
+
+.ra-first-name {
+    display: block;
+    margin-top: 0.8571em;
+    margin-left: 1em;
+}
+
+.ra-last-name {
+    display: block;
+    font-size: 1.7143em;
+    line-height: 1.3em;
+    margin-left: 0.5em;
+}
+
+.ra-position {
+    font-size: 0.8571em;
+    color: #999;
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.buttons-wrap {
+    border-top: 1px solid #e7e7e7;
+    padding-top: .5em;
+    text-align: right;
+}
+
+#example{
+    margin: 7em;
+}
+
+.center{
+    text-align: center;
+}
+
+.btn-default{
+    background: transparent;
+}
+
+.navbar-brand {
+    font-size: 1.8em;
+}

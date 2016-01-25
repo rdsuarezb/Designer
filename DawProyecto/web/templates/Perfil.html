@@ -1,0 +1,178 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static "Recursos/css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "Perfil/css/perfil-style.css" %}">
+        <!-- jQuery -->
+        <script src="{% static "Recursos/js/jquery-2.1.4.min.js" %}"></script>
+        <script src="{% static "Recursos/js/bootstrap.min.js" %}"></script>
+    </head>
+
+    <body>
+        
+            <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+            <div id="topnav" class="container topnav">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand topnav" href="index.html" id="brand-nav">Design.er</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right " id="menu" >
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/Documentos">Documentos</a>
+                        </li>
+                        <li>
+                            <a href="/AreaDeTrabajo">Area de trabajo</a>
+                        </li>
+                       
+                        
+                        <li class="dropdown">
+                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                             {% if user.is_authenticated %}
+                                <span>Hola! {{ user.username }}</span>
+                            {% else %}
+                                <p>Welcome, new user. Please log in.</p>
+                            {% endif %}
+                              
+                               <span class="glyphicon glyphicon-user"></span><b class="caret"></b>
+                           </a>
+                           <ul class="dropdown-menu">
+                               <li><a href="/logout">Salir</a></li>
+                           </ul>
+                       </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        
+        
+        <div id="example" class="row">
+            <div class="col-sm-1"></div>
+            
+            <div class="col-sm-10">
+            
+                <div class="row clearfix">
+                    <section id="profile" class="well">
+                                <h2 class="ra-well-title">Perfil</h2>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-sm-3">
+                                        <div class="row center">
+                                            <img src="{% static "Perfil/img/profile.jpg" %}" class="ra-avatar img-responsive" />
+                                        </div>
+                                        <div class="row center">
+                                            <label>Cambiar Foto</label>
+                                            <button type="button" class="btn btn-default">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-7 col-sm-3">
+                                        <span class="ra-last-name">NOMBRE: {{user.first_name}}</span>
+                                        <span class="ra-last-name">APEELLIDO: {{user.last_name}}</span>
+                                        <div class="ra-last-name">USUARIO: {{user.username}}</div>
+                                    </div>
+                                </div>
+                    </section>
+                </div>
+
+
+                <div class="row clearfix">
+                    <section class="well">
+                            <h2 class="ra-well-title">Configuraci&oacute;n de Datos</h2>
+
+                            <div class="form-horizontal form-widgets col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="name">Nombre</label>
+                                    <div class="col-sm-8 col-md-6">
+                                        <input id="name" value={{user.first_name}} />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="user">Nombre de usuario</label>
+                                    <div class="col-sm-8 col-md-6">
+                                        <input id="name" value={{user.username}} />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="birthday">Fecha de nacimiento</label>
+                                    <div class="col-sm-8 col-md-6">
+                                        <input type="date" value="10/09/1979" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="gender">G&eacute;nero</label>
+                                    <div class="col-sm-8 col-md-6">
+                                        <select id="gender">
+                                            <option selected>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="form-horizontal form-widgets col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="occupation">Apellido</label>
+                                    <div class="col-sm-8 col-md-6">
+                                        <input id="occupation" placeholder="" value={{user.last_name}} />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="skills">Correo</label>
+                                    <div class="col-sm-8 col-md-6">
+                                        <input id="mail" type="email" placeholder="" value={{user.email}} />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="bio">Biografia</label>
+                                    <div class="col-sm-8">
+                                        <textarea id="bio"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="form-horizontal form-widgets col-sm-12">
+
+                            </div>
+
+                            <div class="buttons-wrap">
+                                <button class="k-button k-state-default">Cancelar</button>
+                                <button class="k-button k-state-default">Actualizar</button>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            <div class="col-sm-1"></div>
+            
+        </div>
+    </body>
+
+</html>
