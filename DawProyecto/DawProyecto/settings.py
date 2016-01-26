@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'social.apps.django_app.default',
     'web',
-    
+    'modelador'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'designer',
         'USER': 'root',
-        'PASSWORD': '1234',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -136,12 +136,9 @@ SOCIAL_AUTH_GITHUB_SECRET='23d164fd7863bf375d87f41deb81e33a8a5c0b0c'
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-    'fields': 'id,name,email', 
+    'fields': 'id,name,email',
 }
 
 
 
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
-
-
-
